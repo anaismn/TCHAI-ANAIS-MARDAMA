@@ -90,6 +90,24 @@ Relever la valeur du montant que vous souhaitez modifier (ce sera votre `<ancien
 En comparant les deux listes de transactions, vous pourrez observer que le changement a bien été fait.  
 Mais vous verrez que le hash de la transaction attaquée ne correspond plus au hash enregistré.
 
+### Attaque 2 
+#### Script Attaque
+_Les attaques ont étés fait par le biais de PowerShell_  
+**Attaque :** supprimer une transaction 
+
+La transaction a supprimée est repéré par sa index (son numéro de ligne). Il faut donc donner la valeur de l'index que l'on souhaîte supprimer.
+```
+> .\tests\tchai2_Attaque.ps1 <indexDeLaLigne> <path:data2.txt> 
+```
+
+#### Test
+1. Lancer le serveur Flask et visualiser les transactions sur la page localhost  
+Relever la valeur du montant que vous souhaitez modifier (ce sera votre `<indexDeLaLigne>`)
+2. Executer le script d'attaque dans Powershell
+3. Relancer le serveur et visualiser de nouveau la page localhost
+
+En comparant les deux listes de transactions, vous pourrez observer que la suppression a bien été fait.  
+ET aucune traces de cette attaque n'est visible.
 
 
 ## Auteur
