@@ -35,6 +35,9 @@ Elle est construite comme ci-dessous :
 
 La date est sous le format : **Y-m-d** (Année-Mois-Jour)
 
+**Attention !!**
+> _Si vous ne voulez que les fichiers sources python, ils se trouvent dans **venv\Scripts\tchai**_
+
 ## Tchai 1
 ### Script Attaque
 _Les attaques ont étés fait par le biais de PowerShell_  
