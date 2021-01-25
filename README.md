@@ -34,3 +34,24 @@ Elle est construite comme ci-dessous :
 > Personne1 Personne2 Montant Date
 
 La date est sous le format : **Y-m-d** (Année-Mois-Jour)
+
+## Tchai 1
+### Script Attaque
+_Les attaques ont étés fait par le biais de PowerShell_  
+**Attaque :** modifier directement le fichier de données, en changeant le montant d’une transaction.  
+
+Le montant a changé est repéré par sa valeur. Il faut donc donner la valeur du montant que l'on souhaîte changé.
+```
+> .\tests\tchai1_Attaque.ps1 <ancienMontant> <nouveauMontant> <path:data.txt> 
+```
+
+### Test
+1. Lancer le serveur Flask et visualiser les transactions sur la page localhost  
+Relever la valeur du montant que vous souhaitez modifier (ce sera votre `<ancienMontant>`)
+2. Executer le script d'attaque dans Powershell
+3. Relancer le serveur et visualiser dans une nouvelle page les transactions
+
+En comparant les deux listes de transactions, vous pourrez observer que le changement a bien été fait.
+
+## Auteur
+Anaïs Mardama Nayagom : a.mardama@rt-iut.re
