@@ -109,6 +109,9 @@ Relever la valeur du montant que vous souhaitez modifier (ce sera votre `<indexD
 En comparant les deux listes de transactions, vous pourrez observer que la suppression a bien été fait.  
 ET aucune traces de cette attaque n'est visible.
 
+## Tchai 3
+Modifier la méthode de calcul de hash.
+Maintenant la valeur du hash hi+1 va dépendre non seulement de la transaction en cours, mais également de la valeur du hash hi de la transaction précédente
 
 ## Auteur
 Anaïs Mardama Nayagom : a.mardama@rt-iut.re
