@@ -39,6 +39,9 @@ La date est sous le format : **Y-m-d** (Année-Mois-Jour)
 > _Si vous ne voulez que les fichiers sources python, ils se trouvent dans **venv\Scripts\tchai**_
 
 ## Tchai 1
+Nous définissons une transaction comme étant un tuplet (P1, P2, t, a), où a est égal à la somme d’argent
+transférée de la personne P1 à la personne P2 au moment t.
+
 ### Script Attaque
 _Les attaques ont étés fait par le biais de PowerShell_  
 **Attaque :** modifier directement le fichier de données, en changeant le montant d’une transaction.  
@@ -55,6 +58,39 @@ Relever la valeur du montant que vous souhaitez modifier (ce sera votre `<ancien
 3. Relancer le serveur et visualiser dans une nouvelle page les transactions
 
 En comparant les deux listes de transactions, vous pourrez observer que le changement a bien été fait.
+
+## Tchai 2
+Nous ajoutons maintenant le hash d’une transaction dans son tuplet : (P1, P2, t, a, h), où a est égal à la
+somme d’argent transférée de la personne P1 à la personne P2 au moment t et h correspond au hash
+du tuple (P1, P2, t, a).
+
+Pour stocker ces nouveaux tuples, tout en conservant ceux crées précédemment. Une nouveau base de données a été créée : **data2.txt**
+
+### Hashage
+Fonction de hashage choisie : **sha256**  
+SHA est une fonction de hashage très connu, ayant fait ses preuves.  
+SHA2 est la version la suivante mais elle est plus résistant aux attaques et donne un condensat plus long.
+
+### Attaque 1 
+#### Script Attaque
+_Les attaques ont étés fait par le biais de PowerShell_  
+**Attaque :** modifier directement le fichier de données, en changeant le montant d’une transaction.  
+
+Le montant a changé est repéré par sa valeur. Il faut donc donner la valeur du montant que l'on souhaîte changé.
+```
+> .\tests\tchai1_Attaque.ps1 <ancienMontant> <nouveauMontant> <path:data2.txt> 
+```
+
+#### Test
+1. Lancer le serveur Flask et visualiser les transactions sur la page localhost  
+Relever la valeur du montant que vous souhaitez modifier (ce sera votre `<ancienMontant>`)
+2. Executer le script d'attaque dans Powershell
+3. Relancer le serveur et visualiser de nouveau la page localhost
+
+En comparant les deux listes de transactions, vous pourrez observer que le changement a bien été fait.  
+Mais vous verrez que le hash de la transaction attaquée ne correspond plus au hash enregistré.
+
+
 
 ## Auteur
 Anaïs Mardama Nayagom : a.mardama@rt-iut.re
