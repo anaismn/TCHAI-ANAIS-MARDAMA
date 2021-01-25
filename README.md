@@ -113,5 +113,24 @@ ET aucune traces de cette attaque n'est visible.
 Modifier la méthode de calcul de hash.
 Maintenant la valeur du hash hi+1 va dépendre non seulement de la transaction en cours, mais également de la valeur du hash hi de la transaction précédente
 
+### Attaques précédentes
+#### Attaque 1 
+Tout comme pour la version précédente, l'attaque est repérable grâce aux hash enregistrés.
+
+#### Attaque 2 
+Avec notre nouvelle version de tchai, l'attaque est visible.
+
+##### Test
+1. Lancer le serveur Flask et visualiser les transactions sur la page localhost  
+Relever la valeur du montant que vous souhaitez modifier (ce sera votre `<indexDeLaLigne>`)
+2. Executer le script d'attaque dans Powershell
+3. Relancer le serveur et visualiser dans une nouvelle page les transactions
+
+En comparant les deux listes de transactions, vous pourrez observer que la suppression a bien été fait.  
+ET des traces de cette attaque est visible. 
+les hash des lignes suivants celle effacé ne correspondent plus aux hashs enregistrés.
+
+
+
 ## Auteur
 Anaïs Mardama Nayagom : a.mardama@rt-iut.re
